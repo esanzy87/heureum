@@ -9,8 +9,9 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import django_heroku
 from pathlib import Path
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,10 @@ SECRET_KEY = 'hiqqc37+xp&vk%b@6se8=!9@ao8f-j!mrj-h7ny%tq-hy6s4pn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost:8805',
+    'heureum.herokuapp.com',
+]
 
 
 # Application definition
@@ -124,3 +128,5 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 AUTH_USER_MODEL = 'core.User'
+
+django_heroku.settings(locals())
